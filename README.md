@@ -1,1 +1,1 @@
-# reacr-redux-todolist
+# react-redux-todolist
