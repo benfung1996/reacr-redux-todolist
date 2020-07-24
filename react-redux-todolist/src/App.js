@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import store from './store';
-import Footer from './components/Footer';
+import Footer from './components/Footer/Footer';
 import AddTodo from './containers/AddTodo';
 import VisibleTodoList from './containers/VisibleTodoList';
 

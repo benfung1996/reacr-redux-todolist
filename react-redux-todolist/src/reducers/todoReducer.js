@@ -1,4 +1,3 @@
-import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO } from '../actions/types';
 import uuid from 'uuidv4';
 
 const INITIAL_DATA = [{
@@ -13,7 +12,7 @@ const INITIAL_DATA = [{
 
 const todoReducer = (state = INITIAL_DATA, action) => {
     switch (action.type) {
-        case ADD_TODO:
+        case 'ADD_TODO':
             return [
                 ...state,
                 {
@@ -22,11 +21,11 @@ const todoReducer = (state = INITIAL_DATA, action) => {
                     completed: false
                 }
             ]
-        case TOGGLE_TODO:
+        case 'TOGGLE_TODO':
             return state.map(todo =>
                 (todo.id === action.id) ? { ...todo, completed: !todo.completed } : todo
             )
-        case REMOVE_TODO:
+        case 'REMOVE_TODO':
             return state.filter(todo => todo.id !== action.id);
         default:
             return state
