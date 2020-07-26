@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import Todos from './components/Todos';
 import AddFrom from './components/AddFrom';
+import { Provider } from 'react-redux';
+import store from './store';
+import { uuid } from 'uuidv4';
 
 export default class App extends Component {
   state = {
     todos: [
-      { id: 1, content: 'test1' },
-      { id: 2, content: 'test2' }
+      { id: uuid(), content: 'test1' },
+      { id: uuid(), content: 'test2' }
     ]
   }
 
@@ -20,7 +23,7 @@ export default class App extends Component {
   }
 
   addTodo = (todo) => {
-    todo.id = Math.random();
+    todo.id = uuid()
     let todos = [...this.state.todos, todo];
     this.setState({
       todos
@@ -29,11 +32,13 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="todo-app container">
-        <h1 className="center blue-text">Todo's</h1>
-        <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} />
-        <AddFrom addTodo={this.addTodo} />
-      </div>
+      <Provider store={store}>
+        <div className="todo-app container">
+          <h1 className="center blue-text">Todo's</h1>
+          <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} />
+          <AddFrom addTodo={this.addTodo} />
+        </div>
+      </Provider>
     )
   }
 }
