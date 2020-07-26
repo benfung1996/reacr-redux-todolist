@@ -1,5 +1,5 @@
 import { ADD_TODO, SET_VISIBILITY_FILTER, TOGGLE_TODO, SHOW_ACTIVE, SHOW_ALL, SHOW_COMPLETED } from './type';
-import { uuid } from uuidv4;
+import { uuid } from 'uuidv4';
 
 export const addTodo = text => ({
     type: ADD_TODO,
